@@ -72,7 +72,7 @@ async function getSongFromSource(id) {
 
     try {
         const { data } = await axios.get(process.env.RAPID_API_BASE_URL, {
-            params: { id, cgeo: 'ZZ' },
+            params: { id, cgeo: 'IN' },
             headers: {
                 'x-rapidapi-key': process.env.RAPID_API_KEY,
                 'x-rapidapi-host': process.env.RAPID_API_HOST,
