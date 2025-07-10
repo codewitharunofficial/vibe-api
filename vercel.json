@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/song",
+      "dest": "/api/song.js"
+    },
+    {
+      "src": "/api/login",
+      "dest": "/api/login.js"
+    },
+    {
+      "src": "/api/register",
+      "dest": "/api/register.js"
+    },
+    {
+      "src": "/api/favourites",
+      "dest": "/api/favourites.js"
+    },
+    {
+      "src": "/api/get-recents",
+      "dest": "/api/recents.js"
+    },
+    {
+      "src": "/api/recently-played",
+      "dest": "/api/recently-played.js"
+    },
+    {
+      "src": "/api/playlists",
+      "dest": "/api/playlists.js"
+    },
+    {
+      "src": "/api/playlist/create",
+      "dest": "/api/create-playlist.js"
+    },
+    {
+      "src": "/api/playlist/add-song",
+      "dest": "/api/add-song.js"
+    },
+    {
+      "src": "/api/listen",
+      "dest": "/api/listen.js"
+    },
+    {
+      "src": "/api/play",
+      "dest": "/api/stream.js"
+    }
+  ]
+}
