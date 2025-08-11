@@ -58,6 +58,11 @@ export default async function streamSong(req, res) {
             return res.status(500).json({ error: 'Streaming URL not found' });
         }
 
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+
         console.log('[stream] Redirecting to:', streamUrl);
         return res.redirect(streamUrl);
 

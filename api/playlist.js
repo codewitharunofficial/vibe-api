@@ -21,6 +21,11 @@ export default async function handler(req, res) {
 
     const playlist = await Playlist.findById({ _id: id });
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+
     if (!playlist) {
       return res
         .status(404)

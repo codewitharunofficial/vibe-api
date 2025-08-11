@@ -10,6 +10,12 @@ export default async function handler(req, res) {
     const { name, email, profile } = req.body;
 
     console.log("data: ", email, name, profile);
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+
     if (!email || !name || !profile) {
       res.status(400).send({ success: false, message: "User Is Required" });
     } else {

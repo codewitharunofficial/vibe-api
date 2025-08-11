@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     console.log(email, song);
     if (!email || !song) return res.status(400).send({ success: false, message: "Missing fields" });
 
-    const user = await User.findOne({email});
+    const user = await User.findOne({ email });
     if (!user) return res.status(404).send({ success: false, message: "User Not Found" });
 
     console.log("Found USer: ", user);
@@ -20,6 +20,11 @@ export default async function handler(req, res) {
     const isFavorite = user.favourites.some((fav) => fav.videoId === song.videoId);
 
     console.log("Is Already Favourite? ", isFavorite);
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
 
     if (isFavorite) {
       user.favourites = user.favourites.filter((fav) => fav.videoId !== song.videoId);

@@ -19,6 +19,11 @@ export default async function handler(req, res) {
         .json({ success: false, message: "Missing fields" });
     }
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+
     const playlists = await Playlist.find({ userId: id });
     if (playlists.length === 0)
       return res

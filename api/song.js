@@ -23,6 +23,11 @@ export default async function handler(req, res) {
       .json({ success: false, message: "Missing required fields" });
   }
 
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+
   try {
     let fetchedSong;
     let existingSong = await Song.findOne({ id });

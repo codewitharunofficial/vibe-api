@@ -10,6 +10,11 @@ export default async function handler(req, res) {
     await connectToDatabase();
     console.log("Connected TO DB...");
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+
     if (!email) {
       res.status(400).send({ success: false, message: "Email Is Required" });
     } else {
