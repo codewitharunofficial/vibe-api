@@ -52,7 +52,10 @@ export default async function streamSong(req, res) {
       await updateUserHistory(email, songData, videoId);
     }
 
-    const streamUrl = songData.formats.at(0)?.url;
+    // const streamUrl = songData.formats.at(0)?.url;
+
+    const streamUrl = songData.adaptiveFormats.at(-1)?.url;
+
 
     if (!streamUrl) {
       return res.status(500).json({ error: "Streaming URL not found" });
